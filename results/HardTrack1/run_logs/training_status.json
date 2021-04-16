@@ -1,0 +1,23 @@
+{
+    "CarAgent": {
+        "checkpoints": [
+            {
+                "steps": 61852,
+                "file_path": "results\\HardTrack1\\CarAgent\\CarAgent-61852.onnx",
+                "reward": null,
+                "creation_time": 1617560689.7403812
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 61852,
+            "file_path": "results\\HardTrack1\\CarAgent.onnx",
+            "reward": null,
+            "creation_time": 1617560689.7403812
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
