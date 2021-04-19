@@ -21,8 +21,7 @@ public class CarController : MonoBehaviour
     private float currentBrakeForce;
     //private bool isBraking;
 
-    [SerializeField] SpawnPointManager _spawnPointManager;
-    [SerializeField] SpawnPointManager _spawnPointManager1;
+    [SerializeField] List<SpawnPointManager> _spawnPointManager;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float brakeForce;
@@ -56,6 +55,28 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        frontLeftWheelColliderbrakeTorque = frontLeftWheelCollider.brakeTorque;
+         frontRighttWheelColliderbrakeTorque = frontRightWheelCollider.brakeTorque;
+         backLeftWheelColliderbrakeTorque = rearLeftWheelCollider.brakeTorque;
+         backRighttWheelColliderbrakeTorque = rearRightWheelCollider.brakeTorque;
+
+         frontLeftWheelColliderisGrounded = frontLeftWheelCollider.isGrounded;
+         frontRightWheelColliderisGrounded = frontRightWheelCollider.isGrounded;
+         rearLeftWheelColliderisGrounded = rearLeftWheelCollider.isGrounded;
+         rearRightWheelColliderisGrounded = rearRightWheelCollider.isGrounded;
+
+         frontLeftWheelColliderrpm = frontLeftWheelCollider.rpm;
+         frontRightWheelColliderrpm = frontRightWheelCollider.rpm;
+         rearLeftWheelColliderrpm = rearLeftWheelCollider.rpm;
+         rearRightWheelColliderrpm = rearRightWheelCollider.rpm;
+
+         frontLeftWheelCollidermotorTorque = frontLeftWheelCollider.motorTorque;
+         frontRightWheelCollidermotorTorque = frontRightWheelCollider.motorTorque;
+         rearLeftWheelCollidermotorTorque = rearLeftWheelCollider.motorTorque;
+         rearRightWheelCollidermotorTorque = rearRightWheelCollider.motorTorque;
+
+         frontLeftWheelCollidersteerAngle = frontLeftWheelCollider.steerAngle;
+         frontrightWheelCollidersteerAngle = frontRightWheelCollider.steerAngle;
         //GetInput();
         //HandleMotor();
         //HandleSteering();
@@ -71,6 +92,7 @@ public class CarController : MonoBehaviour
 
     public void HandleMotor(float verticalInput)
     {
+        verticalInputbla = verticalInput;
         //Debug.Log(verticalInput);
         if (verticalInput >= 0)
         {
@@ -179,16 +201,11 @@ public class CarController : MonoBehaviour
     {
         //coroutine = BrakeTimer();
         StartCoroutine(BrakeTimer());
-        Vector3 pos;
 
-        if (checkpointManager.randomTrackNumber == 0)
-        {
-            pos = _spawnPointManager.SelectRandomSpawnpoint();
-        }
-        else
-        {
-            pos = _spawnPointManager1.SelectRandomSpawnpoint();
-        }
+
+        Vector3 pos = _spawnPointManager[checkpointManager.randomTrackNumber].SelectRandomSpawnpoint();
+
+
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rigidbody.MovePosition(pos);
 
@@ -217,7 +234,31 @@ public class CarController : MonoBehaviour
         rearLeftWheelCollider.brakeTorque = 0;
         rearRightWheelCollider.brakeTorque = 0;
     }
-    
+
+
+    [SerializeField] float verticalInputbla;
+    [SerializeField] float frontLeftWheelColliderbrakeTorque;
+    [SerializeField] float frontRighttWheelColliderbrakeTorque;
+    [SerializeField] float backLeftWheelColliderbrakeTorque;
+    [SerializeField] float backRighttWheelColliderbrakeTorque;
+
+    [SerializeField] bool frontLeftWheelColliderisGrounded;
+    [SerializeField] bool frontRightWheelColliderisGrounded;
+    [SerializeField] bool rearLeftWheelColliderisGrounded;
+    [SerializeField] bool rearRightWheelColliderisGrounded;
+
+    [SerializeField] float frontLeftWheelColliderrpm;
+    [SerializeField] float frontRightWheelColliderrpm;
+    [SerializeField] float rearLeftWheelColliderrpm;
+    [SerializeField] float rearRightWheelColliderrpm;
+
+    [SerializeField] float frontLeftWheelCollidermotorTorque;
+    [SerializeField] float frontRightWheelCollidermotorTorque;
+    [SerializeField] float rearLeftWheelCollidermotorTorque;
+    [SerializeField] float rearRightWheelCollidermotorTorque;
+
+    [SerializeField] float frontLeftWheelCollidersteerAngle;
+    [SerializeField] float frontrightWheelCollidersteerAngle;
 
     void DebugRespawn()
     {

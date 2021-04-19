@@ -1,0 +1,47 @@
+{
+    "CarAgent": {
+        "checkpoints": [
+            {
+                "steps": 48499681,
+                "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent\\CarAgent-48499681.onnx",
+                "reward": 141.6334457397461,
+                "creation_time": 1618673947.9607806
+            },
+            {
+                "steps": 48999582,
+                "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent\\CarAgent-48999582.onnx",
+                "reward": 51.56523577372233,
+                "creation_time": 1618674427.2251334
+            },
+            {
+                "steps": 49499155,
+                "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent\\CarAgent-49499155.onnx",
+                "reward": 87.76392402648926,
+                "creation_time": 1618674909.4378421
+            },
+            {
+                "steps": 49999303,
+                "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent\\CarAgent-49999303.onnx",
+                "reward": 35.97143402099609,
+                "creation_time": 1618675389.8914835
+            },
+            {
+                "steps": 50000303,
+                "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent\\CarAgent-50000303.onnx",
+                "reward": 35.97143402099609,
+                "creation_time": 1618675390.026757
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 50000303,
+            "file_path": "results\\=DistanceToCheckpointNormal\\CarAgent.onnx",
+            "reward": 35.97143402099609,
+            "creation_time": 1618675390.026757
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

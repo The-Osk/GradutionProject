@@ -11,8 +11,8 @@ public class CheckpointManager : MonoBehaviour
 
 
     // Consider making it a list for multi tracks
-    [SerializeField] Checkpoints checkpointsScript;
-    [SerializeField] Checkpoints checkpointsScript1;
+    [SerializeField] List<Checkpoints> checkpointsScript;
+    
 
     public CarAgent carAgent;
     public Checkpoint nextCheckPointToReach;
@@ -27,22 +27,17 @@ public class CheckpointManager : MonoBehaviour
 
     void Start()
     {
-        Checkpoints = checkpointsScript.checkPoints;
+        Checkpoints = checkpointsScript[0].checkPoints;
 
         ResetCheckpoints();
     }
 
+
     public void ResetCheckpoints()
     {
-        randomTrackNumber = UnityEngine.Random.Range(0, 2);
-        if (randomTrackNumber == 0)
-        {
-            Checkpoints = checkpointsScript.checkPoints;
-        }
-        else
-        {
-            Checkpoints = checkpointsScript1.checkPoints;
-        }
+        randomTrackNumber = UnityEngine.Random.Range(0, checkpointsScript.Count);
+        Checkpoints = checkpointsScript[randomTrackNumber].checkPoints;
+        
         foreach (Checkpoint c in Checkpoints)
         {
             c.gameObject.SetActive(false);

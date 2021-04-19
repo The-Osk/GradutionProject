@@ -39,9 +39,11 @@ public class CarAgent : Agent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-       //Vector3 diffFromCheckpoint = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
+        //Vector3 diffFromCheckpoint = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         //base.CollectObservations(sensor);
-
+       var directionToCheckpoint =  (this.transform.position - _checkpointManager.nextCheckPointToReach.transform.position).normalized;
+       sensor.AddObservation(directionToCheckpoint.x);
+       sensor.AddObservation(directionToCheckpoint.z);
        sensor.AddObservation(rigidbody.velocity.magnitude);
        sensor.AddObservation(_carController.steeringAngle);
         //   sensor.AddObservation(diffFromCheckpoint / 20);
@@ -59,8 +61,18 @@ public class CarAgent : Agent
         {
             AddReward(-0.01f);
         }
-        _carController.HandleMotor(Mathf.Clamp(input[1], 0, 1));
+        //_carController.HandleMotor(Mathf.Clamp(input[1], 0, 1));
+        _carController.HandleMotor(input[1]);
         _carController.HandleSteering(input[0]);
+
+        /*
+        bool brake = (int)actions.DiscreteActions[0] > 0;
+        if (brake)
+        {
+            _carController.ApplyBraking();
+        }
+        */
+        
         _carController.UpdateWheels();
 
     }
@@ -72,7 +84,12 @@ public class CarAgent : Agent
 
         action[0] = Input.GetAxis("Horizontal");
         action[1] = Mathf.Clamp(Input.GetAxis("Vertical"),0,1);
-       // action[2] = Input.GetKey(KeyCode.Space) ? 1f : 0f;
+
+        /*
+        //discrete brakes 
+        var discreteActionsOut = actionsOut.DiscreteActions;
+        discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
+        */
 
     }
 
