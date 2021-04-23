@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class CarAgent : Agent
 {
+    [SerializeField] ulong timeSteps = 0;
+    [SerializeField] ulong epCount = 0;
+    [SerializeField] WallHitTracker wallTracker;
     public CheckpointManager _checkpointManager;
     private CarController _carController;
     Rigidbody rigidbody;
@@ -15,11 +18,14 @@ public class CarAgent : Agent
     public double rewardFromTime = 0;
     public double rewardFromSpeed = 0;
 
+    List<bool> last100Ep;
+
     //called once at the start
     public override void Initialize()
     {
         _carController = GetComponent<CarController>();
         rigidbody = GetComponent<Rigidbody>();
+        wallTracker = FindObjectOfType<WallHitTracker>();
     }
 
 
@@ -28,6 +34,8 @@ public class CarAgent : Agent
     //Called each time it has timed-out or has reached the goal
     public override void OnEpisodeBegin()
     {
+        epCount++;
+        timeSteps = 0;
         _checkpointManager.ResetCheckpoints();
         _carController.Respawn();
         
@@ -62,17 +70,18 @@ public class CarAgent : Agent
             AddReward(-0.01f);
         }
         //_carController.HandleMotor(Mathf.Clamp(input[1], 0, 1));
-        _carController.HandleMotor(input[1]);
+        _carController.HandleMotor(input[1] + 1);
         _carController.HandleSteering(input[0]);
 
-        /*
+        //Brakes
         bool brake = (int)actions.DiscreteActions[0] > 0;
         if (brake)
         {
+            AddReward(-0.5f);
             _carController.ApplyBraking();
         }
-        */
-        
+        timeSteps++;
+
         _carController.UpdateWheels();
 
     }
@@ -83,14 +92,30 @@ public class CarAgent : Agent
         var action = actionsOut.ContinuousActions;
 
         action[0] = Input.GetAxis("Horizontal");
-        action[1] = Mathf.Clamp(Input.GetAxis("Vertical"),0,1);
+        action[1] = Mathf.Clamp(Input.GetAxis("Vertical"),0,1)*2 - 1;
 
-        /*
+
         //discrete brakes 
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
-        */
 
+
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            if (wallTracker)
+            {
+                wallTracker.WallHitCount++;
+                Debug.Log(wallTracker.WallHitCount);
+            }
+
+            AddReward(-13f);
+            EndEpisode();
+        }
     }
 
 }
