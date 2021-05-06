@@ -9,9 +9,8 @@ public class CheckpointManager : MonoBehaviour
     public float TimeLeft = 30f;
     public int randomTrackNumber = 0;
 
-
-    // Consider making it a list for multi tracks
     [SerializeField] List<Checkpoints> checkpointsScript;
+    [SerializeField] TrackGenerator generator;
     
 
     public CarAgent carAgent;
@@ -21,6 +20,9 @@ public class CheckpointManager : MonoBehaviour
     private List<Checkpoint> Checkpoints;
 
     private Checkpoint lastCheckpoint;
+    public bool testing = false;
+
+    public bool procedural = false;
 
 
     public event Action<Checkpoint> reachedCheckpoint;
@@ -28,16 +30,15 @@ public class CheckpointManager : MonoBehaviour
     void Start()
     {
         Checkpoints = checkpointsScript[0].checkPoints;
-
         ResetCheckpoints();
     }
 
 
     public void ResetCheckpoints()
     {
+
         randomTrackNumber = UnityEngine.Random.Range(0, checkpointsScript.Count);
         Checkpoints = checkpointsScript[randomTrackNumber].checkPoints;
-        
         foreach (Checkpoint c in Checkpoints)
         {
             c.gameObject.SetActive(false);
@@ -55,6 +56,7 @@ public class CheckpointManager : MonoBehaviour
 
         if (TimeLeft < 0f)
         {
+            carAgent.endedDueToTime++;
             carAgent.AddReward(-100f);
             carAgent.EndEpisode();
         }

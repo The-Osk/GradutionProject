@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SouthToWest
+  m_EditorClassIdentifier: Assembly-CSharp::LevelChunkData
+  chunkSize: {x: -20, y: 20}
+  levelChunks:
+  - {fileID: 3368109453567246301, guid: bf3497d8b2a98ee4487732f35d330ce3, type: 3}
+  entryDirection: 2
+  exitDirection: 3
+  trackRoation: {x: 0, y: 0, z: 0, w: 0}
+  inputPoint: {x: 0, y: 0, z: 0}
+  outputPoint: {x: 0, y: 0, z: 0}

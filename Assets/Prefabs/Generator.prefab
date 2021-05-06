@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7534123626694646594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7534123626694646596}
+  - component: {fileID: 7534123626694646597}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7534123626694646596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534123626694646594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7534123626694646597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534123626694646594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cd9e86fa4ba304eb921c650723a1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelChunkData:
+  - {fileID: 11400000, guid: fad98e95bb00d9941a5825d1035a1efb, type: 2}
+  - {fileID: 11400000, guid: bdab2baf729d52d4baa146eac042ffcc, type: 2}
+  - {fileID: 11400000, guid: 24f5114f4bca9c04686359c692305e97, type: 2}
+  - {fileID: 11400000, guid: 5ae3bf5c373a33b49843c5e5f19766ab, type: 2}
+  - {fileID: 11400000, guid: 17f099f1fc2e9eb408fc5b4b9abf40e0, type: 2}
+  - {fileID: 11400000, guid: 17f099f1fc2e9eb408fc5b4b9abf40e0, type: 2}
+  firstChunk: {fileID: 11400000, guid: 17f099f1fc2e9eb408fc5b4b9abf40e0, type: 2}
+  checkpointPrefab: {fileID: 469186285604700094, guid: ab7b1f8b5a44eb646af5508f77d74ab1,
+    type: 3}
+  CheckpointEveryNSegments: 2
+  SavedCheckpoints: []
+  FinaleTemplate: {fileID: 1244242346084329024, guid: 259a0999534753b488272f0b247479f6,
+    type: 3}
+  spawnOrigin: {x: 0, y: 0, z: 0}
+  trackLength: 64

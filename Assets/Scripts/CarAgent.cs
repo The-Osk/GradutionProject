@@ -8,17 +8,20 @@ using UnityEngine;
 public class CarAgent : Agent
 {
     [SerializeField] ulong timeSteps = 0;
-    [SerializeField] ulong epCount = 0;
+    [SerializeField] int epCount = -1;
     [SerializeField] WallHitTracker wallTracker;
+    public ulong endedDueToTime = 0;
+
+    public TrackGenerator trackGenerator;
     public CheckpointManager _checkpointManager;
     private CarController _carController;
     Rigidbody rigidbody;
-    public ulong wallHits = 0;
+    //public ulong wallHits = 0;
 
     public double rewardFromTime = 0;
     public double rewardFromSpeed = 0;
 
-    List<bool> last100Ep;
+    List<bool> last100EpCollision = new List<bool>();
 
     //called once at the start
     public override void Initialize()
@@ -34,9 +37,34 @@ public class CarAgent : Agent
     //Called each time it has timed-out or has reached the goal
     public override void OnEpisodeBegin()
     {
+        if (trackGenerator)
+        {
+            trackGenerator.DestroyTrack();
+            trackGenerator.GenerateTrack();
+        }
         epCount++;
+        /*if (epCount < 100)
+            last100EpCollision.Add(false);
+        else
+        {
+            last100EpCollision[epCount % 100] = false;
+        }
+        if(wallTracker.WallHitCount != 0)
+            Debug.Log("Collision Rate: " + wallTracker.WallHitCount / epCount * 100 + "%");
+
+        int wallHitsInLast100Ep = 0;
+        for (int i = 0; i < last100EpCollision.Count; i++)
+        {
+            if(last100EpCollision[i])
+                wallHitsInLast100Ep++;
+        }
+
+        Debug.Log("Collision Rate for last 100 Ep: " + wallHitsInLast100Ep / last100EpCollision.Count * 100 + "%");*/
+
         timeSteps = 0;
-        _checkpointManager.ResetCheckpoints();
+        if(!_checkpointManager.testing)
+            _checkpointManager.ResetCheckpoints();
+
         _carController.Respawn();
         
     }
@@ -49,9 +77,13 @@ public class CarAgent : Agent
     {
         //Vector3 diffFromCheckpoint = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         //base.CollectObservations(sensor);
-       var directionToCheckpoint =  (this.transform.position - _checkpointManager.nextCheckPointToReach.transform.position).normalized;
-       sensor.AddObservation(directionToCheckpoint.x);
-       sensor.AddObservation(directionToCheckpoint.z);
+
+        if (!_checkpointManager.testing)
+        {
+            var directionToCheckpoint = (this.transform.position - _checkpointManager.nextCheckPointToReach.transform.position).normalized;
+            sensor.AddObservation(directionToCheckpoint.x);
+            sensor.AddObservation(directionToCheckpoint.z);
+        }
        sensor.AddObservation(rigidbody.velocity.magnitude);
        sensor.AddObservation(_carController.steeringAngle);
         //   sensor.AddObservation(diffFromCheckpoint / 20);
@@ -113,6 +145,7 @@ public class CarAgent : Agent
                 Debug.Log(wallTracker.WallHitCount);
             }
 
+            //last100EpCollision[epCount % 100] = true;
             AddReward(-13f);
             EndEpisode();
         }

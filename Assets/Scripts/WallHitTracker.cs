@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class WallHitTracker : MonoBehaviour
 {
-    public ulong WallHitCount = 0;
+    public int WallHitCount = 0;
 }
