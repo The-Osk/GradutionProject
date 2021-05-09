@@ -37,6 +37,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
+    [SerializeField] GameObject BrakeLights;
+
     public void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -90,13 +92,13 @@ public class CarController : MonoBehaviour
         //isBraking = Input.GetKey(KeyCode.Space);
     }
 
-    public void HandleMotor(float verticalInput)
+    public void HandleMotor(float verticalInput, int isBrake)
     {
         verticalInputbla = verticalInput;
         //Debug.Log(verticalInput);
         if (verticalInput >= 0)
         {
-            StopBrakes();
+            //StopBrakes();
 
             if (currentDriveMode == DriveModes.FrontDrive)
             {
@@ -118,6 +120,8 @@ public class CarController : MonoBehaviour
                 rearRightWheelCollider.motorTorque = verticalInput * motorForce;
             }
         }
+        ApplyBraking(isBrake);
+
 /*        else if (verticalInput < 0)
         {
             ApplyBraking();
@@ -134,18 +138,32 @@ public class CarController : MonoBehaviour
 
     public void StopBrakes()
     {
+        
         frontLeftWheelCollider.brakeTorque = 0;
         frontRightWheelCollider.brakeTorque = 0;
         rearLeftWheelCollider.brakeTorque = 0;
         rearRightWheelCollider.brakeTorque = 0;
     }
 
-    public void ApplyBraking()
-    {   
-        frontLeftWheelCollider.brakeTorque = brakeForce;
-        frontRightWheelCollider.brakeTorque = brakeForce;
-        rearLeftWheelCollider.brakeTorque = brakeForce;
-        rearRightWheelCollider.brakeTorque = brakeForce;
+    public void ApplyBraking(int isBrake)
+    {
+        if (isBrake == 1)
+        {
+            BrakeLights.SetActive(true);
+            frontLeftWheelCollider.brakeTorque = brakeForce;
+            frontRightWheelCollider.brakeTorque = brakeForce;
+            rearLeftWheelCollider.brakeTorque = brakeForce;
+            rearRightWheelCollider.brakeTorque = brakeForce;
+        }
+        else
+        {
+            BrakeLights.SetActive(false);
+            frontLeftWheelCollider.brakeTorque = 0;
+            frontRightWheelCollider.brakeTorque = 0;
+            rearLeftWheelCollider.brakeTorque = 0;
+            rearRightWheelCollider.brakeTorque = 0;
+        }
+
     }
 
     public void HandleSteering(float horizontalInput)

@@ -78,12 +78,11 @@ public class CarAgent : Agent
         //Vector3 diffFromCheckpoint = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
         //base.CollectObservations(sensor);
 
-        if (!_checkpointManager.testing)
-        {
+
             var directionToCheckpoint = (this.transform.position - _checkpointManager.nextCheckPointToReach.transform.position).normalized;
             sensor.AddObservation(directionToCheckpoint.x);
-            sensor.AddObservation(directionToCheckpoint.z);
-        }
+        sensor.AddObservation(directionToCheckpoint.z);
+       
        sensor.AddObservation(rigidbody.velocity.magnitude);
        sensor.AddObservation(_carController.steeringAngle);
         //   sensor.AddObservation(diffFromCheckpoint / 20);
@@ -102,15 +101,14 @@ public class CarAgent : Agent
             AddReward(-0.01f);
         }
         //_carController.HandleMotor(Mathf.Clamp(input[1], 0, 1));
-        _carController.HandleMotor(input[1] + 1);
+        _carController.HandleMotor(input[1] + 1, actions.DiscreteActions[0]);
         _carController.HandleSteering(input[0]);
 
         //Brakes
         bool brake = (int)actions.DiscreteActions[0] > 0;
         if (brake)
         {
-            AddReward(-0.5f);
-            _carController.ApplyBraking();
+            AddReward(-0.1f);
         }
         timeSteps++;
 

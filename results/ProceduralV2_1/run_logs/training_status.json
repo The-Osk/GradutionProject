@@ -1,0 +1,47 @@
+{
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cu110"
+    },
+    "CarAgent": {
+        "checkpoints": [
+            {
+                "steps": 48499835,
+                "file_path": "results\\ProceduralV2_1\\CarAgent\\CarAgent-48499835.onnx",
+                "reward": 18.65411949157715,
+                "creation_time": 1620496828.051812
+            },
+            {
+                "steps": 48999234,
+                "file_path": "results\\ProceduralV2_1\\CarAgent\\CarAgent-48999234.onnx",
+                "reward": 28.97929859161377,
+                "creation_time": 1620497313.92985
+            },
+            {
+                "steps": 49499389,
+                "file_path": "results\\ProceduralV2_1\\CarAgent\\CarAgent-49499389.onnx",
+                "reward": null,
+                "creation_time": 1620497799.8213549
+            },
+            {
+                "steps": 49999506,
+                "file_path": "results\\ProceduralV2_1\\CarAgent\\CarAgent-49999506.onnx",
+                "reward": 140.64820861816406,
+                "creation_time": 1620498303.5441036
+            },
+            {
+                "steps": 50000506,
+                "file_path": "results\\ProceduralV2_1\\CarAgent\\CarAgent-50000506.onnx",
+                "reward": 140.64820861816406,
+                "creation_time": 1620498303.6837296
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 50000506,
+            "file_path": "results\\ProceduralV2_1\\CarAgent.onnx",
+            "reward": 140.64820861816406,
+            "creation_time": 1620498303.6837296
+        }
+    }
+}

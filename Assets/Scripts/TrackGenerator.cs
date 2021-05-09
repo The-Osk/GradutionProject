@@ -187,6 +187,18 @@ public class TrackGenerator : MonoBehaviour
                 spawnPosition = spawnPosition + new Vector3(previousChunk.chunkSize.x, 0, previousChunk.chunkSize.y);
 
                 break;
+
+            case LevelChunkData.Direction.EastNorth:
+                nextRequiredDirection = LevelChunkData.Direction.South;
+                spawnPosition = spawnPosition + new Vector3(previousChunk.chunkSize.x, 0, previousChunk.chunkSize.y);
+
+                break;
+
+            case LevelChunkData.Direction.WestNorth:
+                nextRequiredDirection = LevelChunkData.Direction.South;
+                spawnPosition = spawnPosition + new Vector3(previousChunk.chunkSize.x, 0, previousChunk.chunkSize.y);
+
+                break;
             default:
                 break;
         }
