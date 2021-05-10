@@ -7,6 +7,7 @@ public class CheckpointManager : MonoBehaviour
 {
     public float MaxTimeToReachNextCheckpoint = 30f;
     public float TimeLeft = 30f;
+
     public int randomTrackNumber = 0;
 
     [SerializeField] List<Checkpoints> checkpointsScript;
@@ -14,15 +15,20 @@ public class CheckpointManager : MonoBehaviour
     
 
     public CarAgent carAgent;
-    public Checkpoint nextCheckPointToReach;
 
+    public Checkpoint nextCheckPointToReach;
     private int CurrentCheckpointIndex;
     private List<Checkpoint> Checkpoints;
-
     private Checkpoint lastCheckpoint;
-    public bool testing = false;
 
+    public bool testing = false;
     public bool procedural = false;
+
+    [SerializeField] public float epTime = 0f;
+
+    [SerializeField] public float rewardFromTimeLimit = 0;
+    [SerializeField] public float rewardFromFinaCheckpoint = 0;
+    [SerializeField] public float rewardFromCheckpoints = 0;
 
 
     public event Action<Checkpoint> reachedCheckpoint;
@@ -36,7 +42,9 @@ public class CheckpointManager : MonoBehaviour
 
     public void ResetCheckpoints()
     {
-
+        rewardFromTimeLimit = 0;
+        rewardFromFinaCheckpoint = 0;
+        rewardFromCheckpoints = 0;
         randomTrackNumber = UnityEngine.Random.Range(0, checkpointsScript.Count);
         Checkpoints = checkpointsScript[randomTrackNumber].checkPoints;
         foreach (Checkpoint c in Checkpoints)
@@ -53,9 +61,12 @@ public class CheckpointManager : MonoBehaviour
     private void Update()
     {
         TimeLeft -= Time.deltaTime;
+        epTime += Time.deltaTime;
 
         if (TimeLeft < 0f)
         {
+
+            rewardFromTimeLimit = -100f;
             carAgent.endedDueToTime++;
             carAgent.AddReward(-100f);
             carAgent.EndEpisode();
@@ -74,12 +85,14 @@ public class CheckpointManager : MonoBehaviour
 
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
+            rewardFromFinaCheckpoint = 50f;
             carAgent.AddReward(50f);
             Debug.Log("<color=green>Final checkpoint Reached</color>"  + carAgent.GetCumulativeReward(), this);
             carAgent.EndEpisode();
         }
         else
         {
+            rewardFromCheckpoints += (100f / Checkpoints.Count);
             carAgent.AddReward((100f/ Checkpoints.Count));
             checkpoint.gameObject.SetActive(false);
             SetNextCheckpoint();

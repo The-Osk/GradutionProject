@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7178531516518851130}
   m_Layer: 0
-  m_Name: Straight
+  m_Name: Straight 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 7131596180762581025}
   - component: {fileID: 5505027071796706450}
   m_Layer: 11
-  m_Name: Wall
+  m_Name: StrightTrack
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

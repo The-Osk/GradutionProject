@@ -1,0 +1,53 @@
+[
+  {
+    "epNo": 2,
+    "timesteps": 541,
+    "time": 10.8213654,
+    "wallHit": 0,
+    "distanceCovered": 74.49822998046875,
+    "maxSpeed": 11.049715042114258,
+    "avgSpeed": 7.55101262783158,
+    "totalReward": 0.0,
+    "rewardFromCheckpoints": 22.2222214,
+    "rewardFromFinish": 0.0,
+    "rewardFromTimeRunOut": 0.0,
+    "rewardFromWall": -13.0,
+    "rewardFromSpeed": -1.11999929,
+    "rewardFromTime": -0.5419966,
+    "rewardFromBrakes": 0.0
+  },
+  {
+    "epNo": 2,
+    "timesteps": 541,
+    "time": 10.8213654,
+    "wallHit": 0,
+    "distanceCovered": 74.49822998046875,
+    "maxSpeed": 11.049715042114258,
+    "avgSpeed": 7.55101262783158,
+    "totalReward": 0.0,
+    "rewardFromCheckpoints": 22.2222214,
+    "rewardFromFinish": 0.0,
+    "rewardFromTimeRunOut": 0.0,
+    "rewardFromWall": -13.0,
+    "rewardFromSpeed": -1.11999929,
+    "rewardFromTime": -0.5419966,
+    "rewardFromBrakes": 0.0
+  },
+  {
+    "epNo": 2,
+    "timesteps": 541,
+    "time": 10.8213654,
+    "wallHit": 0,
+    "distanceCovered": 74.49822998046875,
+    "maxSpeed": 11.049715042114258,
+    "avgSpeed": 7.55101262783158,
+    "totalReward": 0.0,
+    "rewardFromCheckpoints": 22.2222214,
+    "rewardFromFinish": 0.0,
+    "rewardFromTimeRunOut": 0.0,
+    "rewardFromWall": -13.0,
+    "rewardFromSpeed": -1.11999929,
+    "rewardFromTime": -0.5419966,
+    "rewardFromBrakes": 0.0
+  }
+]
