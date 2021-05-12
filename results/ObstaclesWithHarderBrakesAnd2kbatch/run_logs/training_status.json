@@ -1,0 +1,47 @@
+{
+    "CarAgent": {
+        "checkpoints": [
+            {
+                "steps": 18499578,
+                "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent\\CarAgent-18499578.onnx",
+                "reward": 82.56484546661378,
+                "creation_time": 1620718183.1330583
+            },
+            {
+                "steps": 18999152,
+                "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent\\CarAgent-18999152.onnx",
+                "reward": 114.42243607838948,
+                "creation_time": 1620718702.5726802
+            },
+            {
+                "steps": 19499493,
+                "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent\\CarAgent-19499493.onnx",
+                "reward": 72.1848258972168,
+                "creation_time": 1620719225.231031
+            },
+            {
+                "steps": 19999961,
+                "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent\\CarAgent-19999961.onnx",
+                "reward": 136.81087970733643,
+                "creation_time": 1620719749.787005
+            },
+            {
+                "steps": 20000961,
+                "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent\\CarAgent-20000961.onnx",
+                "reward": 136.81087970733643,
+                "creation_time": 1620719749.929131
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 20000961,
+            "file_path": "results\\ObstaclesWithHarderBrakesAnd2kbatch\\CarAgent.onnx",
+            "reward": 136.81087970733643,
+            "creation_time": 1620719749.929131
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

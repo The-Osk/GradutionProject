@@ -15,6 +15,17 @@ MonoBehaviour:
   chunkSize: {x: 0, y: 10}
   levelChunks:
   - {fileID: 1244242346084329024, guid: 82d707260d0d4a9498152c3a76bed461, type: 3}
+  - {fileID: 1244242346084329024, guid: 11d7d5eccb5d14b4f932cde3b66a7573, type: 3}
+  - {fileID: 1244242346084329024, guid: 03614064ff0ef3641aafc7b31e6008fd, type: 3}
+  - {fileID: 1244242346084329024, guid: e5f371666fdbe7646954d85a4a220515, type: 3}
+  - {fileID: 1244242346084329024, guid: a5adb8cce12fe0c41b6433d5e6d7af86, type: 3}
+  - {fileID: 1244242346084329024, guid: 8ea13294c8ce03d49abfe6f56338bbaf, type: 3}
+  - {fileID: 1244242346084329024, guid: f144500cb78cfc545a7945e4bbc5484b, type: 3}
+  - {fileID: 1244242346084329024, guid: 1a527cd9ee75bd1419bb17e046c99bbc, type: 3}
+  - {fileID: 1244242346084329024, guid: d9d6d6e1e956e99459a8e36c01fa0a9d, type: 3}
+  - {fileID: 1244242346084329024, guid: 471d4f9eb46c8e040a1ec91c7b618c10, type: 3}
+  - {fileID: 1244242346084329024, guid: 5811bf7e5b1c73048900efd28a82c7af, type: 3}
+  - {fileID: 1244242346084329024, guid: a60036ec072070a4d94501fbe144789e, type: 3}
   entryDirection: 2
   exitDirection: 0
   trackRoation: {x: 0, y: 0, z: 0, w: 0}
