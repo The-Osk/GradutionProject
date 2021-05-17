@@ -22,7 +22,6 @@ public class TrackGenerator : MonoBehaviour
     private Vector3 spawnPosition;
     public int trackLength = 10;
 
-    bool shiftStright = false;
     int tracksTillCheckpoint = 0;
 
     Checkpoints checkpointsScript;

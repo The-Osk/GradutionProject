@@ -128,7 +128,7 @@ public class CarAgent : Agent
         epData.time = _checkpointManager.epTime;
 
         epData.wallHit = rewardFromWall == -13 ? 1 : 0;
-        epData.collidedWith = collidedWith;
+        epData.collidedWith = rewardFromWall == -13 ? collidedWith : "";
 
         epData.distanceCovered = distanceCovered;
 

@@ -38,6 +38,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearRightWheelTransform;
 
     [SerializeField] GameObject BrakeLights;
+    [SerializeField] bool manual = false;
+
+    bool isBraking = false;
 
     public void Awake()
     {
@@ -57,39 +60,24 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        frontLeftWheelColliderbrakeTorque = frontLeftWheelCollider.brakeTorque;
-         frontRighttWheelColliderbrakeTorque = frontRightWheelCollider.brakeTorque;
-         backLeftWheelColliderbrakeTorque = rearLeftWheelCollider.brakeTorque;
-         backRighttWheelColliderbrakeTorque = rearRightWheelCollider.brakeTorque;
-
-         frontLeftWheelColliderisGrounded = frontLeftWheelCollider.isGrounded;
-         frontRightWheelColliderisGrounded = frontRightWheelCollider.isGrounded;
-         rearLeftWheelColliderisGrounded = rearLeftWheelCollider.isGrounded;
-         rearRightWheelColliderisGrounded = rearRightWheelCollider.isGrounded;
-
-         frontLeftWheelColliderrpm = frontLeftWheelCollider.rpm;
-         frontRightWheelColliderrpm = frontRightWheelCollider.rpm;
-         rearLeftWheelColliderrpm = rearLeftWheelCollider.rpm;
-         rearRightWheelColliderrpm = rearRightWheelCollider.rpm;
-
-         frontLeftWheelCollidermotorTorque = frontLeftWheelCollider.motorTorque;
-         frontRightWheelCollidermotorTorque = frontRightWheelCollider.motorTorque;
-         rearLeftWheelCollidermotorTorque = rearLeftWheelCollider.motorTorque;
-         rearRightWheelCollidermotorTorque = rearRightWheelCollider.motorTorque;
-
-         frontLeftWheelCollidersteerAngle = frontLeftWheelCollider.steerAngle;
-         frontrightWheelCollidersteerAngle = frontRightWheelCollider.steerAngle;
-        //GetInput();
-        //HandleMotor();
-        //HandleSteering();
-        //UpdateWheels();
+        int x;
+        if (isBraking)
+            x = 1;
+        else x = 0;
+        if (manual)
+        {
+            GetInput();
+            HandleMotor(verticalInput, x);
+            HandleSteering(horizontalInput);
+            UpdateWheels();
+        }
     }
 
     public void GetInput()
     {
         horizontalInput = Input.GetAxis(HORIZONTAL);
         verticalInput = Input.GetAxis(VERTICAL);
-        //isBraking = Input.GetKey(KeyCode.Space);
+        isBraking = Input.GetKey(KeyCode.Space);
     }
 
     public void HandleMotor(float verticalInput, int isBrake)
