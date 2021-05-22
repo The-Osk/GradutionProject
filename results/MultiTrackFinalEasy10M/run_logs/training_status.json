@@ -1,0 +1,47 @@
+{
+    "CarAgent": {
+        "checkpoints": [
+            {
+                "steps": 8499661,
+                "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent\\CarAgent-8499661.onnx",
+                "reward": 135.87885284423828,
+                "creation_time": 1621436900.7966595
+            },
+            {
+                "steps": 8999107,
+                "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent\\CarAgent-8999107.onnx",
+                "reward": null,
+                "creation_time": 1621437355.0470603
+            },
+            {
+                "steps": 9499657,
+                "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent\\CarAgent-9499657.onnx",
+                "reward": 110.87917582194011,
+                "creation_time": 1621437809.206138
+            },
+            {
+                "steps": 9999052,
+                "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent\\CarAgent-9999052.onnx",
+                "reward": 137.5517209370931,
+                "creation_time": 1621438267.42557
+            },
+            {
+                "steps": 10000052,
+                "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent\\CarAgent-10000052.onnx",
+                "reward": 137.5517209370931,
+                "creation_time": 1621438267.5681887
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 10000052,
+            "file_path": "results\\MultiTrackFinalEasy10M\\CarAgent.onnx",
+            "reward": 137.5517209370931,
+            "creation_time": 1621438267.5681887
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

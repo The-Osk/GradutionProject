@@ -16,7 +16,7 @@ public class CarAnalytics : MonoBehaviour
     private void Awake()
     {
         SAVE_FOLDER = Application.dataPath + "/Analytics_Saved/";
-        fileName = "DataFrom " + DateTime.Now.ToString("dd--h_mmtt")  + ".txt";
+        fileName = "DataFrom " + DateTime.Now.ToString("dd--h_mmtt")  + ".json";
         if (!Directory.Exists(SAVE_FOLDER))
         {
             Directory.CreateDirectory(SAVE_FOLDER);

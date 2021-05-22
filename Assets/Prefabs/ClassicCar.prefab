@@ -1036,7 +1036,7 @@ MonoBehaviour:
   steeringAngle: 0
   _spawnPointManager:
   - {fileID: 0}
-  motorForce: 200
+  motorForce: 150
   brakeForce: 4000
   maxSteering: 30
   frontLeftWheelCollider: {fileID: 641176094093443932}
@@ -1048,6 +1048,7 @@ MonoBehaviour:
   rearLeftWheelTransform: {fileID: 641176094440204046}
   rearRightWheelTransform: {fileID: 641176093924499717}
   BrakeLights: {fileID: 4160137072266501326}
+  manual: 0
   currentDriveMode: 0
   verticalInputbla: 0
   frontLeftWheelColliderbrakeTorque: 0

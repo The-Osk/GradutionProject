@@ -55,6 +55,7 @@ public class CarAgent : Agent
     //Called each time it has timed-out or has reached the goal
     public override void OnEpisodeBegin()
     {
+        
         epCount = carAnalytics.epCount;
         carAnalytics.epCount++;
 
@@ -68,7 +69,7 @@ public class CarAgent : Agent
                 carAnalytics.AddEpDataTolist(epData);
             }
             ClearEpData();
-        
+        Debug.Log(epCount);
 
         if (trackGenerator)
         {
@@ -96,6 +97,7 @@ public class CarAgent : Agent
 
     private void ClearEpData()
     {
+        speedSum = 0;
         epData = new EpisodeData();
         timeSteps = 0;
         _checkpointManager.epTime = 0;
