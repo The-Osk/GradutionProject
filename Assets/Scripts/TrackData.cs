@@ -18,5 +18,7 @@ public class LevelChunkData : ScriptableObject
     public Quaternion trackRoation;
     public Vector3 inputPoint;
     public Vector3 outputPoint;
+    public bool RequireLargeCurve;
+
 
 }

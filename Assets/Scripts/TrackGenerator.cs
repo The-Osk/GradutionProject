@@ -20,6 +20,7 @@ public class TrackGenerator : MonoBehaviour
     public Vector3 spawnOrigin;
 
     private Vector3 spawnPosition;
+    bool RequireLargeCurve = false;
     public int trackLength = 10;
 
     int tracksTillCheckpoint = 0;
@@ -77,8 +78,18 @@ public class TrackGenerator : MonoBehaviour
            
             if (levelChunkData[i].entryDirection == nextRequiredDirection)
             {
-                
-                allowedChunkList.Add(levelChunkData[i]);
+                if (previousChunk.RequireLargeCurve)
+                {
+                    if (levelChunkData[i].chunkSize.magnitude > 10)
+                    {
+                        allowedChunkList.Add(levelChunkData[i]);
+                    }
+                }
+
+                else 
+                {
+                    allowedChunkList.Add(levelChunkData[i]);
+                }
             }
         }
         var aloo = Random.Range(0, allowedChunkList.Count);

@@ -1,0 +1,38 @@
+[
+  {
+    "epNo": 0,
+    "timesteps": 0,
+    "time": 0.0,
+    "wallHit": 0,
+    "collidedWith": "",
+    "distanceCovered": 0.0,
+    "maxSpeed": 0.0,
+    "avgSpeed": 0.0,
+    "totalReward": 0.0,
+    "rewardFromCheckpoints": 0.0,
+    "rewardFromFinish": 0.0,
+    "rewardFromTimeRunOut": 0.0,
+    "rewardFromWall": 0.0,
+    "rewardFromSpeed": 0.0,
+    "rewardFromTime": 0.0,
+    "rewardFromBrakes": 0.0
+  },
+  {
+    "epNo": 1,
+    "timesteps": 1974,
+    "time": 39.46902,
+    "wallHit": 0,
+    "collidedWith": "",
+    "distanceCovered": 343.18133544921875,
+    "maxSpeed": 10.049075126647949,
+    "avgSpeed": 8.7128008108476624,
+    "totalReward": 135.863861,
+    "rewardFromCheckpoints": 88.88889,
+    "rewardFromFinish": 50.0,
+    "rewardFromTimeRunOut": 0.0,
+    "rewardFromWall": 0.0,
+    "rewardFromSpeed": -1.04999936,
+    "rewardFromTime": -1.97503626,
+    "rewardFromBrakes": 0.0
+  }
+]

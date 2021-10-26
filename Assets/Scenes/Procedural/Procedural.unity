@@ -3197,7 +3197,7 @@ PrefabInstance:
     - target: {fileID: 7534123626694646597, guid: 60aa6686c607b7c40b3f72ff568186bc,
         type: 3}
       propertyPath: trackLength
-      value: 64
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7534123626694646597, guid: 60aa6686c607b7c40b3f72ff568186bc,
         type: 3}
